@@ -1,6 +1,6 @@
 # BLACKLYTE Stream Overlay for hitchcat
 
-Browser source overlay for OBS / Streamlabs. Streamers add it once with their code in the URL. This code is based off of the ADVANCED.GG stream-overlay github code: https://github.com/59adf2f/stream-overlay. All credit to them. The ADVANCED team controls campaigns, products, timing, and can completely redesign the overlay at any time without streamers changing anything. This code will not include those changes as its altered to fight blacklyte for hitchcat's stream. 
+Browser source overlay for OBS / Streamlabs. Streamers add it once with their code in the URL. This code is based off of the ADVANCED.GG stream-overlay github code: https://github.com/59adf2f/stream-overlay. All credit to them. The ADVANCED team controls campaigns, products, timing, and can completely redesign the overlay at any time without streamers changing anything. This code will not include those changes as its altered to fit a blacklyte stream overlay for hitchcat's stream. 
 
 ## Repo Structure
 
@@ -151,14 +151,16 @@ This overrides every streamer's personal code with `EASTERBOGO`.
 
 ### Swapping Product Images
 
-Just edit the `shakers` and `jars` arrays. Use Shopify CDN URLs:
+Just edit the `chairs` and `desks` arrays. Use Shopify CDN URLs:
+* need to update so I don't have to use shopify cdn urls
 
+CURRENT: 
 ```json
 {
-  "shakers": [
+  "chairs": [
     "https://cdn.shopify.com/s/files/.../new-shaker.png"
   ],
-  "jars": [
+  "desks": [
     "https://cdn.shopify.com/s/files/.../new-jar.png"
   ]
 }
