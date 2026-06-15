@@ -351,7 +351,7 @@ async function init(){
   if(!cfg){document.getElementById('code').textContent=CODE;document.getElementById('pct').textContent=(PCT_OV||'10')+'% OFF'}
   if(ALWAYS)setTimeout(slideIn,500);
   else if(TEST){setTimeout(slideIn,500);cycle=setInterval(slideIn,(durMs/1000+3)*1000)}
-  else{setTimeout(slideIn,23000);cycle=setInterval(slideIn,intMs)}
+  else{setTimeout(slideIn,20000);cycle=setInterval(slideIn,intMs)}
   setInterval(load,60000);
 }
 init();
