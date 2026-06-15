@@ -262,7 +262,7 @@ const FB_DESKS=[
   "https://cdn.shopify.com/s/files/1/0770/5473/8569/files/Leather_Conditioner_2.webp?v=1781512023"
 ];
  
-let cfg=null,intMs=7*60*1000+20000,durMs=15*1000,cycle=null,campId=null,prodSwapTimer=null;
+let cfg=null,intMs=7*60*1000,durMs=15*1000,cycle=null,campId=null,prodSwapTimer=null;
 const wrap=document.getElementById('wrap'),tb=document.getElementById('tb');
 const CFG=new URL('config.json',window.location.href).href;
  
@@ -271,7 +271,7 @@ async function load(){try{const r=await fetch(CFG+'?t='+Date.now());if(r.ok){cfg
 function apply(){
   if(!cfg)return;
   const t=cfg.timing||{};
-  const ni=Math.max(1,Math.min(30,t.interval_minutes||7))*60*1000+20000;
+  const ni=Math.max(1,Math.min(30,t.interval_minutes||7))*60*1000;
   const nd=Math.max(5,Math.min(60,t.duration_seconds||15))*1000;
   if(ni!==intMs||nd!==durMs){intMs=ni;durMs=nd;resetCycle()}
   const d=cfg.defaults||{},c=cfg.campaign||{},on=isLive(c);
@@ -337,7 +337,7 @@ function particles(){
 }
  
 function slideIn(){
-  particles();initProds();
+  resetCycle();particles();initProds();
   tb.classList.remove('on');tb.style.setProperty('--dt',(durMs/1000)+'s');
   void tb.offsetHeight;tb.classList.add('on');
   wrap.classList.remove('out');void wrap.offsetHeight;wrap.classList.add('in');
@@ -351,7 +351,7 @@ async function init(){
   if(!cfg){document.getElementById('code').textContent=CODE;document.getElementById('pct').textContent=(PCT_OV||'10')+'% OFF'}
   if(ALWAYS)setTimeout(slideIn,500);
   else if(TEST){setTimeout(slideIn,500);cycle=setInterval(slideIn,(durMs/1000+3)*1000)}
-  else{setTimeout(slideIn,20000);cycle=setInterval(slideIn,intMs)}
+  else{setTimeout(slideIn,23000);cycle=setInterval(slideIn,intMs)}
   setInterval(load,60000);
 }
 init();
